@@ -3,17 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './in-memory-data.service';
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeroService } from './hero.service';
-import { DashboardComponent } from './dashboard.component';
-import { HeroesComponent } from './heroes.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroSearchComponent } from './hero-search.component';
+import { SystemModule } from './system/system.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   imports: [
@@ -21,20 +18,17 @@ import { HeroSearchComponent } from './hero-search.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-      delay: 300,
-      passThruUnknownUrl: true
-    })
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+    //   dataEncapsulation: false,
+    //   delay: 300,
+    //   passThruUnknownUrl: true
+    // }),
+    HomeModule,
+    SystemModule
+
   ],
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    HeroSearchComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-  ],
-  providers: [HeroService],
+  declarations: [],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
