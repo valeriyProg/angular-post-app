@@ -1,0 +1,13 @@
+<mat-card>
+  <img [src]="clientItem.screen" [alt]="clientItem.name" class="logo" />
+  <div class="info-block">
+    <mat-card-title>Name: {{ clientItem.name }}</mat-card-title>
+    <mat-card-subtitle>Category: {{ clientItem.category }}</mat-card-subtitle>
+    <mat-card-subtitle>Address: {{ clientItem.address }}</mat-card-subtitle>
+    <mat-card-subtitle>Tel: {{ clientItem.telephone }}</mat-card-subtitle>
+    <mat-card-content>{{ clientItem.description }}</mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button (click)="viewMore(postItem)">More</button>
+    </mat-card-actions>
+  </div>
+</mat-card>

@@ -1,0 +1,13 @@
+<mat-card>
+  <img [src]="postItem.screen" [alt]="postItem.name" class="logo" />
+  <div class="info-block">
+    <mat-card-title>{{ postItem.name }}</mat-card-title>
+    <mat-card-subtitle>ID: {{ postItem.id }}</mat-card-subtitle>
+    <mat-card-subtitle>Address: {{ postItem.address }}</mat-card-subtitle>
+    <mat-card-subtitle>Tel: {{ postItem.telephone }}</mat-card-subtitle>
+    <mat-card-content>{{ postItem.description }}</mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button (click)="viewMore()">More</button>
+    </mat-card-actions>
+  </div>
+</mat-card>
