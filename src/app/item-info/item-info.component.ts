@@ -10,15 +10,14 @@ import PostDepartment from '../../shared/models/post-department';
   styleUrls: ['./item-info.component.scss']
 })
 export class ItemInfoComponent implements OnInit {
- @Input() item: any;
- @Output() goBack = new EventEmitter<any>();
- @Output() postDepartmentDetail = new EventEmitter<PostDepartment>();
+  @Input() item: any;
+  @Output() goBack = new EventEmitter<any>();
+  @Output() postDepartmentDetail = new EventEmitter<PostDepartment>();
 
   // @Output() goBack = new EventEmitter<Package | Person | PostCompany>();
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   isClientPerson(): boolean {
     this.item = this.item as Person;
     return this.item instanceof Person;

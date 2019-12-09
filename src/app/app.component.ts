@@ -11,7 +11,7 @@ import PostDepartment from '../shared/models/post-department';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  showPostList = false;
+  showPostList = true;
   showClientList = false;
   showPackList = false;
   selectedItem = false;
@@ -19,28 +19,27 @@ export class AppComponent {
   postItems = postItemsData;
   clientItems = clientItemsData;
 
-
   showList(event: Event) {
     if (event.target instanceof HTMLElement) {
       const target = event.target as HTMLElement;
       switch (target.id) {
-        case 'post-btn': this.showPostList = true;
+        case 'post-btn':
+          this.showPostList = true;
           this.showClientList = false;
           this.showPackList = false;
           this.viewItem = undefined;
-
           break;
-        case 'client-btn': this.showClientList = true;
+        case 'client-btn':
+          this.showClientList = true;
           this.showPackList = false;
           this.showPostList = false;
           this.viewItem = undefined;
-
           break;
-        case 'pack-btn': this.showPackList = true;
+        case 'pack-btn':
+          this.showPackList = true;
           this.showClientList = false;
           this.showPostList = false;
           this.viewItem = undefined;
-
           break;
         default: break;
       }
