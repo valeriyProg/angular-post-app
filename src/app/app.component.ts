@@ -3,6 +3,7 @@ import {clientItemsData, postItemsData} from '../shared/models/DATA';
 import {PostCompany} from '../shared/models/post-company';
 import Person from '../shared/models/person';
 import Package from '../shared/models/package';
+import PostDepartment from '../shared/models/post-department';
 
 @Component({
   selector: 'app-root',
@@ -54,9 +55,14 @@ export class AppComponent {
         this.showClientList = false;
         this.showPackList = true;
         this.viewItem = undefined;
-      } else {
+      } else if (event instanceof Person) {
         this.showPostList = false;
         this.showClientList = true;
+        this.showPackList = false;
+        this.viewItem = undefined;
+      } else {
+        this.showPostList = true;
+        this.showClientList = false;
         this.showPackList = false;
         this.viewItem = undefined;
       }
@@ -68,6 +74,8 @@ export class AppComponent {
       this.viewItem = item as PostCompany;
     } else if (item instanceof Person) {
       this.viewItem = item as Person;
+    } else if (item instanceof PostDepartment) {
+      this.viewItem = item as PostDepartment;
     } else {
       this.viewItem = item as Package;
     }

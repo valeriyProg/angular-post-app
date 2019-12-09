@@ -30,6 +30,7 @@
           style="display: block; margin-bottom: 20px;"
           *ngFor="let postDepartment of item.departments"
           [department]="postDepartment"
+          (postDepartmentDetail)="viewDetail($event)"
         ></app-post-department>
       </div>
       <mat-card-actions align="end">
@@ -45,6 +46,21 @@
       <mat-card-subtitle>Type: {{ item.type }}</mat-card-subtitle>
       <mat-card-subtitle>Price: {{ item.price }}</mat-card-subtitle>
       <mat-card-subtitle>Weight: {{ item.weight }}</mat-card-subtitle>
+      <mat-card-content>{{ item.description }}</mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button (click)="back()">Back</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+  <!--  PACKAGE POST DEPARTMENT VIEW-->
+  <mat-card *ngIf="isPostDepartment()">
+    <img [src]="item.screen" [alt]="item.name" class="logo" />
+    <div class="info-block">
+      <mat-card-title>{{ item.name }}</mat-card-title>
+      <mat-card-subtitle>ID: {{ item.id }}</mat-card-subtitle>
+      <mat-card-subtitle>Address: {{ item.address }}</mat-card-subtitle>
+      <mat-card-subtitle>Tel: {{ item.telephone }}</mat-card-subtitle>
+      <mat-card-subtitle>Parent: {{ item.parent.name }}</mat-card-subtitle>
       <mat-card-content>{{ item.description }}</mat-card-content>
       <mat-card-actions align="end">
         <button mat-button (click)="back()">Back</button>

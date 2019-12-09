@@ -9,13 +9,13 @@ import {PostCompany} from '../../shared/models/post-company';
 })
 export class PostDepartmentComponent implements OnInit {
   @Input() department: PostDepartment;
-  @Output() postDetail = new EventEmitter<PostDepartment>();
+  @Output() postDepartmentDetail = new EventEmitter<PostDepartment>();
 
   constructor() { }
 
   ngOnInit() {
   }
   viewMore(): void {
-    this.postDetail.emit(this.department);
+    this.postDepartmentDetail.emit(this.department);
   }
 }

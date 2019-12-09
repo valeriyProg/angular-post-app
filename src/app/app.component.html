@@ -64,6 +64,7 @@
           *ngIf="viewItem"
           [item]="viewItem"
           (goBack)="showList($event)"
+          (postDepartmentDetail)="showItemInfo($event)"
         ></app-item-info>
       </div>
     </main>
