@@ -69,7 +69,7 @@
   </mat-card>
 </div>
 <div class="right">
-  <ng-template>
+  <ng-template *ngIf="this.item as PostCompany">
     <app-package-item></app-package-item>
   </ng-template>
 </div>

@@ -18,7 +18,6 @@ export class ItemInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.item.departments[0].telephone);
   }
   isClientPerson(): boolean {
     this.item = this.item as Person;
