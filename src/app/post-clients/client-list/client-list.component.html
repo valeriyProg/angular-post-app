@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 style="text-align: center; margin-top: 0; font-size: 1.5em ">
+    LIST OF CLIENTS
+  </h1>
+  <mat-card-actions align="end">
+    <button
+      mat-button
+      color="primary"
+      class="add-btn"
+      (click)="clientService.add()"
+    >
+      ADD CLIENT
+    </button>
+    <button
+      mat-button
+      color="warn"
+      class="remove-btn"
+      (click)="clientService.remove()"
+    >
+      REMOVE CLIENT
+    </button>
+  </mat-card-actions>
+  <ul class="client-list">
+    <li *ngFor="let client of clients">
+      <app-client-item
+        [client]="client"
+        (clientDetail)="showDetail($event)"
+      ></app-client-item>
+    </li>
+  </ul>
+</div>

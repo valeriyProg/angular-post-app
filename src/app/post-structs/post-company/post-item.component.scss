@@ -1,0 +1,23 @@
+mat-card {
+  display: flex;
+  background: #f7f7f7;
+  .logo {
+    align-self: center;
+  }
+  .info-block {
+    margin: 0 30px;
+    mat-card-actions {
+      margin-bottom: 0;
+    }
+  }
+}
+.top-logo {
+  align-self: flex-start;
+}
+.post-list {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>
+    Package list
+  </h1>
+  <mat-card-actions align="end">
+    <button
+      mat-button
+      color="primary"
+      class="add-btn"
+      (click)="packageService.add()"
+    >
+      Add package
+    </button>
+    <button
+      mat-button
+      color="warn"
+      class="remove-btn"
+      (click)="packageService.remove()"
+    >
+      Remove package
+    </button>
+  </mat-card-actions>
+  <ul class="post-list">
+    <li *ngFor="let item of packageList">
+      <app-package-item [package]="item" (packageDetail)="showDetail($event)">
+      </app-package-item>
+    </li>
+  </ul>
+</div>

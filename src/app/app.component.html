@@ -1,75 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <span class="logo"><a href="#">Logo</a></span>
-      <nav class="top-nav">
-        <ul class="top-nav-list">
-          <li><a href="#">item</a></li>
-          <li><a href="#">item</a></li>
-          <li><a href="#">item</a></li>
-          <li><a href="#">item</a></li>
-          <li><a href="#">item</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <aside>
-        <span (click)="showList($event)" id="post-btn">Post</span>
-        <span (click)="showList($event)" id="client-btn">Clients</span>
-        <span (click)="showList($event)" id="pack-btn">Packages</span>
-      </aside>
-      <div class="content">
-        <h1
-          *ngIf="showPostList"
-          style="text-align: center; margin-top: 0; font-size: 1.5em "
-        >
-          LIST OF POST COMPANIES
-        </h1>
-        <ul *ngIf="showPostList" class="post-list">
-          <li
-            *ngFor="let post of postItems"
-            style="list-style: none; margin: 20px 0"
-          >
-            <app-post-item
-              [postItem]="post"
-              (postDetail)="showItemInfo($event)"
-            ></app-post-item>
-          </li>
-        </ul>
-        <h1
-          *ngIf="showClientList"
-          style="text-align: center; margin-top: 0; font-size: 1.5em "
-        >
-          TOP CLIENTS
-        </h1>
-        <ul *ngIf="showClientList" class="client-list">
-          <li *ngFor="let client of clientItems" style="list-style: none;">
-            <app-client-item
-              [clientItem]="client"
-              (clientDetail)="showItemInfo($event)"
-            ></app-client-item>
-          </li>
-        </ul>
-        <app-item-info
-          *ngIf="viewItem"
-          [item]="viewItem"
-          (goBack)="showList($event)"
-          (postDepartmentDetail)="showItemInfo($event)"
-        ></app-item-info>
-      </div>
-    </main>
-    <footer>
-      footer
-    </footer>
-  </body>
-</html>
+<main>
+  <aside>
+    <span id="post-btn" (click)="hideAllList(); showPostList = true">Post</span>
+    <span id="client-btn" (click)="hideAllList(); showClientList = true"
+      >Clients</span
+    >
+    <span id="pack-btn" (click)="hideAllList(); showPackageList = true"
+      >Packages</span
+    >
+    <span id="dep-btn" (click)="hideAllList(); showPostOfficesList = true"
+      >Offices</span
+    >
+  </aside>
+  <div class="content">
+    <div *ngIf="showPostList">
+      <button
+        mat-button
+        color="primary"
+        (click)="showPostList = false"
+        class="hide-list-btn"
+      >
+        Hide List
+      </button>
+      <app-post-list
+        (postCompanyDetail)="postCompanyDetail($event)"
+      ></app-post-list>
+    </div>
+    <div *ngIf="showClientList">
+      <button
+        mat-button
+        color="primary"
+        (click)="showClientList = false"
+        class="hide-list-btn"
+      >
+        Hide List
+      </button>
+      <app-client-list></app-client-list>
+    </div>
+    <div *ngIf="showPackageList">
+      <button
+        mat-button
+        color="primary"
+        (click)="showPackageList = false"
+        class="hide-list-btn"
+      >
+        Hide List
+      </button>
+      <app-package-list [packageList]="packageList"> </app-package-list>
+    </div>
+    <div *ngIf="showPostOfficesList">
+      <button
+        mat-button
+        color="primary"
+        (click)="showPostOfficesList = false"
+        class="hide-list-btn"
+      >
+        Hide List
+      </button>
+      <app-offices-list> </app-offices-list>
+    </div>
+    <!--        ITEM DETAIL          -->
+    <div class="detail-company-block" *ngIf="itemToDetail">
+      <button
+        mat-button
+        color="primary"
+        (click)="itemToDetail = undefined; showPostList = true"
+        class="hide-list-btn"
+      >
+        Close Detail Info
+      </button>
+      <app-post-company-detail [postCompany]="itemToDetail">
+      </app-post-company-detail>
+    </div>
+  </div>
+</main>

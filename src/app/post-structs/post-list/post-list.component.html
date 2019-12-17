@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="upper-case">
+    List of post companies
+  </h1>
+  <mat-card-actions align="end">
+    <button
+      mat-button
+      color="primary"
+      class="add-btn upper-case"
+      (click)="postService.add()"
+    >
+      Add company
+    </button>
+    <button
+      mat-button
+      color="warn"
+      class="remove-btn upper-case"
+      (click)="postService.remove()"
+    >
+      Remove company
+    </button>
+  </mat-card-actions>
+  <ul class="post-list">
+    <li *ngFor="let company of postCompanyList">
+      <app-post-item
+        [postCompany]="company"
+        (postCompanyDetail)="showDetail($event)"
+      ></app-post-item>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,14 @@
+<mat-card>
+  <img [src]="office.screen" [alt]="office.name" class="logo" />
+  <div class="info-block">
+    <mat-card-title>{{ office.name }}</mat-card-title>
+    <mat-card-subtitle>ID: {{ office.id }}</mat-card-subtitle>
+    <mat-card-subtitle>Address: {{ office.address }}</mat-card-subtitle>
+    <mat-card-subtitle>Tel: {{ office.telephone }}</mat-card-subtitle>
+    <mat-card-subtitle>Parent: {{ office.parent }}</mat-card-subtitle>
+    <mat-card-content>{{ office.description }}</mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button (click)="viewMore()">More</button>
+    </mat-card-actions>
+  </div>
+</mat-card>

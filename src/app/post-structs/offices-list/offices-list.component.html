@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="upper-case">
+    Offices list
+  </h1>
+  <mat-card-actions align="end">
+    <button
+      mat-button
+      color="primary"
+      class="add-btn"
+      (click)="postOfficeService.add()"
+    >
+      Add office
+    </button>
+    <button
+      mat-button
+      color="warn"
+      class="remove-btn"
+      (click)="postOfficeService.remove()"
+    >
+      Remove office
+    </button>
+  </mat-card-actions>
+  <ul class="post-list">
+    <li *ngFor="let office of postOfficeList">
+      <app-post-office
+        [office]="office"
+        (postOfficeDetail)="showDetail($event)"
+      >
+      </app-post-office>
+    </li>
+  </ul>
+</div>
