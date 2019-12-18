@@ -59,7 +59,6 @@ export class ClientService {
       0.04,
     )
   ];
-
   add(client?: Client): void {
     if (!client) {
       this.clientList.push(

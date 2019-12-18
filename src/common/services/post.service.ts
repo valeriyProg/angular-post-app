@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {PostCompany} from '../contracts/post-company.contract';
+import Organisation from '../contracts/abstract-organisation.contract';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,7 @@ export class PostService {
       ' enterprise of the government of Ukraine.'
     )
   ];
+
   constructor() { }
   add(postCompany?: PostCompany): void {
     if (!postCompany) {
